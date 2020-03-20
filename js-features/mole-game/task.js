@@ -1,24 +1,42 @@
-let moles = document.getElementsByClassName("hole_has-mole");
-let holes = document.getElementsByClassName("hole");
-
-
 let dead = document.getElementById("dead");
 let counterDead = +dead.textContent;
 let lost = document.getElementById("lost");
 let counterLost = +lost.textContent;
 
+let holes = Array.from(document.getElementsByClassName("hole"));
 
-//правильно ли я понимаю, что код ниже не работает потому, что я обращаюсь к массивоподобному объекту
-// и мне нужно изъять из него конкретный элемент?
+holes.forEach( elem=>{
+    if (elem.classList.contains("hole_has-mole")) {
+        elem.addEventListener("click", e=> {
+            counterDead++;
+            dead.textContent = ""+counterDead;
+            if(counterDead === 10) {
+                dead.textContent = "0";
+                counterDead = 0;
+                lost.textContent = "0";
+                counterLost = 0;
+                alert("you win");
+            }
+        })
+    } else if (!elem.classList.contains("hole_has-mole")) {
+        elem.addEventListener("click", e=> {
+            counterLost++;
+            lost.textContent = ""+counterLost;
+            if (counterLost === 5) {
+                alert("you lose");
+                dead.textContent = "0";
+                counterDead = 0;
+                lost.textContent = "0";
+                counterLost = 0;
+            }
+        })
+    }
+});
 
-onclick.holes = ()=> {
-  counterLost++;
-  lost.textContent = ""+counterLost;
-};
 
-onclick.moles = ()=> {
-    counterDead++;
-    dead.textContent = ""+counterDead;
-};
+
+
+
+
 
 
