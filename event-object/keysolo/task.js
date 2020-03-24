@@ -17,6 +17,15 @@ class Game {
   }
 
   registerEvents() {
+    document.addEventListener("keydown", ()=> {
+      let key = event.key.toLowerCase();
+      if(this.currentSymbol.textContent == key) {
+        return this.success();
+      } else if (this.currentSymbol.textContent !== key) {
+        return this.fail();
+      }
+    })
+
     /*
       TODO:
       Написать обработчик события, который откликается
