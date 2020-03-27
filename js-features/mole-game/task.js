@@ -5,9 +5,9 @@ let counterLost = +lost.textContent;
 
 let holes = Array.from(document.getElementsByClassName("hole"));
 
-holes.forEach( elem=>{
-    if (elem.classList.contains("hole_has-mole")) {
-        elem.addEventListener("click", e=> {
+holes.forEach( elem=> {
+    elem.addEventListener("click", e=> {
+        if (elem.classList.contains("hole_has-mole")) {
             counterDead++;
             dead.textContent = ""+counterDead;
             if(counterDead === 10) {
@@ -17,9 +17,7 @@ holes.forEach( elem=>{
                 counterLost = 0;
                 alert("you win");
             }
-        })
-    } else if (!elem.classList.contains("hole_has-mole")) {
-        elem.addEventListener("click", e=> {
+        } else if (!elem.classList.contains("hole_has-mole")) {
             counterLost++;
             lost.textContent = ""+counterLost;
             if (counterLost === 5) {
@@ -29,9 +27,12 @@ holes.forEach( elem=>{
                 lost.textContent = "0";
                 counterLost = 0;
             }
-        })
-    }
-});
+        }
+    })
+})
+
+
+
 
 
 
