@@ -70,7 +70,7 @@ class Autocomplete {
   getMatches( text ) {
     const options = Array.from(this.input.options)
     let result = []
-    options.forEach((elem, i)=> {
+    options.forEach((elem)=> {
       if(elem.textContent.toLowerCase().indexOf(text.toLowerCase()) !== -1) {
         result.push(
             {value: elem.value,
