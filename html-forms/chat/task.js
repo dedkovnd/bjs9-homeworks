@@ -1,11 +1,10 @@
 let message = document.querySelector( '.chat-widget__messages' );
 let nowDate = new Date();
 let date = `${nowDate.getHours()} : ${nowDate.getMinutes()}`;
-let botmessage = getMessage();
 let botTalk = `
   <div class="message">
     <div class="message__time">${date}</div>
-    <div class="message__text">${botmessage}</div>
+    <div class="message__text">${"Добрый день"}</div>
   </div>
 `;
 let userMessage = document.getElementById("chat-widget__input");
@@ -21,7 +20,13 @@ function getMessage() {
             'точно туда пишите?'
         ],
         index = Math.floor(Math.random()*messageText.length);
-    return messageText[index];
+    message.innerHTML +=  `
+    <div class="message">
+    <div class="message__time">${date}</div>
+    <div class="message__text">${messageText[index]}</div>
+    </div>
+    `;
+
 };
 
 
@@ -38,6 +43,7 @@ userMessage.addEventListener("keydown", e=> {
     <div class="message__text">${userMessage.value}</div>
     </div>
     `;
+       getMessage();
     userMessage.value = "";
    }
 })
