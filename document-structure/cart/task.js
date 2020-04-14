@@ -35,7 +35,6 @@ productButton.forEach(elem=> {
         } else {
             for (let i = 0; i < carts.length; i++) {
                if (carts[i].dataset.id == id) {
-                   console.log("ddd")
                    console.log(carts[i].dataset.id)
                    console.log(id)
                } else if (carts[i].dataset.id != id){
